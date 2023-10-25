@@ -16,6 +16,9 @@ stages
    { sh 'mvn package' } 
   }}
 
+  stage ('create docker image')
+  {steps { sh 'docker build -t kirtis29/devops-oct23:latest .' }
+  }
 
 }
 }
