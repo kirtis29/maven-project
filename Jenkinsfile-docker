@@ -8,12 +8,12 @@ stages
 
 	stage('execute unit test')
 	{steps { withMaven(globalMavenSettingsConfig: '7beafd65-5dae-4135-ae97-9c4150ebab98', jdk: 'LocalJDK', maven: 'LocalMVN', mavenSettingsConfig: '33cd59fd-69a3-4ea7-ad6c-c94a4002435b', traceability: true) 
-		{ sh 'mnv test'}  
+		{ sh 'mvn test'}  
 	}}
 	
 	stage('code build')
 	{steps { withMaven(globalMavenSettingsConfig: '7beafd65-5dae-4135-ae97-9c4150ebab98', jdk: 'LocalJDK', maven: 'LocalMVN', mavenSettingsConfig: '33cd59fd-69a3-4ea7-ad6c-c94a4002435b', traceability: true) 
-		{ sh 'mnv package'}  
+		{ sh 'mvn package'}  
 	}}
 
 }
