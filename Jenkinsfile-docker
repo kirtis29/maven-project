@@ -3,18 +3,19 @@ pipeline
 agent any
 stages
 {
-   stage ('scm checkout')
-    {steps { git branch: 'master', url: 'https://github.com/kirtis29/maven-project'  }}
+  stage ('scm checkout')
+   {steps { git branch: 'master', url: 'https://github.com/prakashk0301/maven-project' }}
 
-	stage('execute unit test')
-	{steps { withMaven(globalMavenSettingsConfig: '7beafd65-5dae-4135-ae97-9c4150ebab98', jdk: 'LocalJDK', maven: 'LocalMVN', mavenSettingsConfig: '33cd59fd-69a3-4ea7-ad6c-c94a4002435b', traceability: true) 
-		{ sh 'mvn test'}  
-	}}
-	
-	stage('code build')
-	{steps { withMaven(globalMavenSettingsConfig: '7beafd65-5dae-4135-ae97-9c4150ebab98', jdk: 'LocalJDK', maven: 'LocalMVN', mavenSettingsConfig: '33cd59fd-69a3-4ea7-ad6c-c94a4002435b', traceability: true) 
-		{ sh 'mvn package'}  
-	}}
+  stage ('execute unit test')
+  {steps { withMaven(globalMavenSettingsConfig: 'e332679b-a71d-434c-b97c-5fe0f871e636', jdk: 'LocalJDK', maven: 'LocalMVN', mavenSettingsConfig: '26bc7296-0d78-4b33-904a-bed77e28a4ca', traceability: true) 
+   { sh 'mvn test' } 
+  }}
+
+  stage ('code build')
+  {steps { withMaven(globalMavenSettingsConfig: 'e332679b-a71d-434c-b97c-5fe0f871e636', jdk: 'LocalJDK', maven: 'LocalMVN', mavenSettingsConfig: '26bc7296-0d78-4b33-904a-bed77e28a4ca', traceability: true) 
+   { sh 'mvn package' } 
+  }}
+
 
 }
 }
