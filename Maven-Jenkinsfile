@@ -6,7 +6,10 @@ pipeline
          stage ('scm checkout or download the code')
          { steps { git branch: 'master', url: 'https://github.com/kirtis29/maven-project/' } }
 
-
+         stage ('compile the code')
+		 {steps {withMaven(globalMavenSettingsConfig: '', jdk: 'LocalJDK', maven: 'LocalMVN', mavenSettingsConfig: '', traceability: true)
+         {sh 'mvn compile'}
+        }}
 
 
     }
