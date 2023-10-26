@@ -22,7 +22,7 @@ stages
 
   stage('docker push from jenkins to Dockerhub')
   {steps{ withDockerRegistry(credentialsId: 'DockerHubCredentials') 
-     { docker push kirtis29/devops-oct23:latest }   
+     { sh docker push kirtis29/devops-oct23:latest }   
  
  }}
  
