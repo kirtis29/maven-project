@@ -21,7 +21,7 @@ stages
   }
 
   stage('docker push from jenkins to Dockerhub')
-  {steps{ withDockerRegistry(credentialsId: 'DockerHubCredentials', url: 'https://index.docker.io/v1/') 
+  {steps{ withDockerRegistry(credentialsId: 'DockerHubCredentials') 
      { docker push kirtis29/devops-oct23:latest }   
  
  }}
