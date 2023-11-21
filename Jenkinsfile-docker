@@ -21,7 +21,7 @@ stages
   }
 
   stage('docker push from jenkins to AWS ECR')
-  {steps{ withDockerRegistry(credentialsId: 'ecr:ap-south-1:aws-cred', url: '335821453379.dkr.ecr.ap-south-1.amazonaws.com') 
+  {steps{ withDockerRegistry(credentialsId: 'ecr:ap-south-1:aws-cred', url: 'https://335821453379.dkr.ecr.ap-south-1.amazonaws.com') 
      { sh 'docker push 335821453379.dkr.ecr.ap-south-1.amazonaws.com/my-ecr:latest' }   
  
  }}
