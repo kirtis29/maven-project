@@ -25,6 +25,10 @@ stages
      { sh 'docker push 335821453379.dkr.ecr.ap-south-1.amazonaws.com/my-ecr:latest' }   
  
  }}
- 
+
+stage('deploy to eks-kubernetes from jenkins')
+{steps{ withAWS(credentials: 'aws-cred', region: 'ap-south-1') 
+{ sh 'aws eks --region ap-south-1 update-kubeconfig --name my-eks-prod'
+  sh 'kubectl apply -f eks-manifest.yaml' }}}   //helm install myapp .
 }
 }
